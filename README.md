@@ -1,3 +1,3 @@
-# RT0805 - Programmation répartiee
+# RT0805 - Programmation répartie
 
 ## Covoiturage
