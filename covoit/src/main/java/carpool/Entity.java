@@ -38,6 +38,7 @@ public abstract class Entity
             element.appendChild(deletionDateElt);
         }
         element.appendChild(idElt);
+        document.appendChild(element);
         return element;
     }
 

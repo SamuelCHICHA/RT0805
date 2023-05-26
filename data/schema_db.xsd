@@ -3,7 +3,7 @@
     <xs:element name="database">
         <xs:complexType>
             <xs:sequence>
-                <xs:element name="ride_offers">
+                <xs:element name="ride_offers" minOccurs="0">
                     <xs:complexType>
                         <xs:sequence>
                             <xs:element name="ride_offer" minOccurs="0">
@@ -30,7 +30,7 @@
                         </xs:sequence>
                     </xs:complexType>
                 </xs:element>
-                <xs:element name="ride_requests">
+                <xs:element name="ride_requests" minOccurs="0">
                     <xs:complexType>
                         <xs:sequence>
                             <xs:element name="ride_request" minOccurs="0">
