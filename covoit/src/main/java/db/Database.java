@@ -12,8 +12,15 @@ import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
+import javax.xml.xpath.XPath;
+import javax.xml.xpath.XPathConstants;
+import javax.xml.xpath.XPathExpression;
+import javax.xml.xpath.XPathExpressionException;
+import javax.xml.xpath.XPathFactory;
 
 import org.w3c.dom.Document;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
 public class Database {
@@ -49,5 +56,21 @@ public class Database {
         DocumentBuilder builder = factory.newDocumentBuilder();
         Document document = builder.parse(this.file);
         return document;
+    }
+
+    public static NodeList queryAll(Document document, String query) throws XPathExpressionException
+    {
+        XPathFactory xPathfactory = XPathFactory.newInstance();
+        XPath xpath = xPathfactory.newXPath();
+        XPathExpression expr = xpath.compile(query);
+        return (NodeList)expr.evaluate(document, XPathConstants.NODESET);
+    }
+
+    public static Node queryOne(Document document, String query) throws XPathExpressionException
+    {
+        XPathFactory xPathfactory = XPathFactory.newInstance();
+        XPath xpath = xPathfactory.newXPath();
+        XPathExpression expr = xpath.compile(query);
+        return (Node)expr.evaluate(document, XPathConstants.NODE);
     }
 }
